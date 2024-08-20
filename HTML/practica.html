@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrega de Prácticas</title>
+    <script>
+        function validateFileType() {
+            const fileInput = document.getElementById("file");
+            const filePath = fileInput.value;
+            const allowedExtensions = /(\.pdf|\.docx|\.pptx|\.zip)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                alert("Por favor, sube un archivo en formato .pdf, .docx, .pptx o .zip.");
+                fileInput.value = '';
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Entrega de Prácticas</h2>
+    <form onsubmit="return validateFileType()">
+        <label for="nombre">Nombre del Estudiante:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="email">Correo Electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="file">Subir Archivo:</label><br>
+        <input type="file" id="file" name="file" required><br><br>
+
+        <input type="submit" value="Entregar">
+    </form>
+
+</body>
+</html>
